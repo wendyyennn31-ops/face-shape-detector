@@ -3,12 +3,82 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Face Shape Detector Online | Perfect Corp.</title>
+  <title>AI Face Shape Detector | Perfect Corp.</title>
   <meta name="description" content="Upload a photo and our AI Face Analyzer API detects your face shape instantly — oval, heart, square, or diamond — powered by Perfect Corp." />
   <link rel="canonical" href="https://www.perfectcorp.com/business/showcase/face-analyzer" />
+  <style>
+    body {font-family: 'Inter', sans-serif; background: #f9f9f9; color: #333; margin: 0;}
+    header {text-align: center; padding: 60px 20px;}
+    h1 {font-size: 2.2em;}
+    p.sub {color: #555; font-size: 1.1em;}
+    .upload {text-align: center; margin: 40px auto;}
+    input[type=file]{display:none;}
+    label{display:inline-block; padding:40px; border:2px dashed #ccc; border-radius:16px; background:#fff; cursor:pointer;}
+    #preview img{max-width:240px; border-radius:12px; margin-top:20px;}
+    .btn{background:#e6007e; color:#fff; border:none; padding:14px 28px; border-radius:12px; cursor:pointer;}
+    .result{text-align:center; margin-top:40px;}
+    footer{text-align:center; padding:40px; color:#999;}
+  </style>
 </head>
 <body>
-  <h1>AI Face Shape Detector</h1>
-  <p>Upload a photo and detect your face shape using Perfect Corp. AI API.</p>
+  <header>
+    <h1>AI Face Shape Detector Demo</h1>
+    <p class="sub">Powered by Perfect Corp. AI Face Analyzer API</p>
+    <button class="btn" onclick="document.getElementById('upload').click()">Upload Photo</button>
+  </header>
+
+  <section class="upload">
+    <input type="file" id="upload" accept="image/*" onchange="handleUpload(event)">
+    <label for="upload">📷 Click or drag an image to detect your face shape</label>
+    <div id="preview"></div>
+  </section>
+
+  <section class="result">
+    <h2>Result</h2>
+    <div id="output">Upload a photo to begin.</div>
+  </section>
+
+  <footer>
+    © 2025 Perfect Corp. | Learn more at <a href="https://www.perfectcorp.com/business/showcase/face-analyzer" target="_blank">AI Face Analyzer</a>
+  </footer>
+
+  <script>
+    const API_URL = "https://yce-api-01.perfectcorp.com/s2s/v1.0/task/face-analyzer"; // Replace with actual endpoint
+    const ACCESS_TOKEN = "YOUR_ACCESS_TOKEN_HERE"; // Replace with your real token
+
+    async function handleUpload(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      const preview = document.getElementById('preview');
+      const output = document.getElementById('output');
+      preview.innerHTML = '<p>Loading preview...</p>';
+      const reader = new FileReader();
+      reader.onload = (ev)=>{
+        preview.innerHTML = `<img src="${ev.target.result}" alt="preview">`;
+      };
+      reader.readAsDataURL(file);
+      output.innerHTML = '⏳ Analyzing your face...';
+
+      const formData = new FormData();
+      formData.append("image", file);
+
+      try {
+        const res = await fetch(API_URL, {
+          method: "POST",
+          headers: { "Authorization": `Bearer ${ACCESS_TOKEN}` },
+          body: formData
+        });
+        const data = await res.json();
+        if (data.face_shape) {
+          output.innerHTML = `<strong>${data.face_shape}</strong> Face<br>Confidence: ${(data.confidence*100).toFixed(1)}%`;
+        } else {
+          output.innerHTML = "⚠️ Could not detect a face. Try another image.";
+        }
+      } catch (err) {
+        console.error(err);
+        output.innerHTML = "❌ Error: Check your API key or endpoint.";
+      }
+    }
+  </script>
 </body>
 </html>
