@@ -3,127 +3,108 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AI Face Shape Detector | Find Your Face Shape Instantly | Perfect Test</title>
-  <meta name="description" content="Discover your face shape instantly with our AI Face Shape Detector. Identify if your face is oval, round, heart, or square — powered by Perfect Test's advanced AI face analyzer." />
-  <link rel="canonical" href="https://www.perfectcorp.com/business/showcase/face-analyzer" />
+  <title>AI Face Shape Detector | Online Face Shape Analyzer | Perfect Test</title>
+  <meta name="description" content="Use our AI Face Shape Detector to identify your face type instantly: oval, round, square, heart, diamond, or oblong. Try the live camera preview before using the full demo." />
   <meta name="keywords" content="face shape detector, ai face shape analyzer, face shape finder, what is my face shape tool, face shape analysis online, ai facial shape test, find my face shape" />
   <style>
-    body {
-      font-family: "Inter", sans-serif;
-      background: linear-gradient(180deg, #f8f8f8 0%, #fff 100%);
-      margin: 0;
-      color: #333;
-    }
-    header {
-      text-align: center;
-      padding: 80px 20px 60px;
-    }
-    h1 {
-      font-size: 2.6em;
-      margin-bottom: 10px;
-      color: #111;
-    }
-    .sub {
-      font-size: 1.1em;
-      color: #555;
-      max-width: 640px;
-      margin: 0 auto 40px;
-      line-height: 1.6;
-    }
-    .cta-btn {
-      background: #e6007e;
-      color: #fff;
-      border: none;
-      padding: 16px 36px;
-      border-radius: 14px;
-      font-size: 1.1em;
-      cursor: pointer;
-      transition: all 0.3s ease;
-    }
-    .cta-btn:hover {
-      background: #cc006f;
-      transform: translateY(-2px);
-    }
-    section.features {
-      text-align: center;
-      padding: 60px 20px;
-      background: #fff;
-    }
-    .feature-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    .feature {
-      background: #fafafa;
-      border-radius: 16px;
-      padding: 30px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    h3 { color: #e6007e; margin-bottom: 10px; }
-    footer {
-      text-align: center;
-      padding: 40px;
-      color: #999;
-      font-size: 0.9em;
-    }
+    body {font-family:'Inter',sans-serif;background:linear-gradient(180deg,#f8f8f8 0%,#fff 100%);margin:0;color:#333;}
+    header{text-align:center;padding:60px 20px 30px;}
+    h1{font-size:2.4em;margin-bottom:10px;color:#111;}
+    .sub{font-size:1.1em;color:#555;max-width:640px;margin:0 auto 30px;line-height:1.6;}
+    video{width:90%;max-width:360px;border-radius:20px;background:#000;box-shadow:0 4px 15px rgba(0,0,0,0.15);}
+    .cta-btn{background:#e6007e;color:#fff;border:none;padding:16px 36px;border-radius:14px;font-size:1.1em;cursor:pointer;margin-top:30px;transition:all 0.3s ease;}
+    .cta-btn:hover{background:#cc006f;transform:translateY(-2px);}
+    .privacy{font-size:0.9em;color:#888;margin-top:10px;}
+    section{padding:60px 20px;max-width:900px;margin:auto;}
+    .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px;}
+    .feature{background:#fafafa;border-radius:16px;padding:30px;box-shadow:0 4px 10px rgba(0,0,0,0.05);}
+    h2{text-align:center;color:#111;margin-bottom:40px;}
+    h3{color:#e6007e;margin-bottom:10px;}
+    footer{text-align:center;padding:40px;color:#999;font-size:0.9em;}
   </style>
 </head>
 
 <body>
   <header>
     <h1>AI Face Shape Detector</h1>
-    <p class="sub">
-      Instantly find out your face shape — oval, heart, square, or round — in one click.
-      Experience <strong>Perfect Test’s AI-powered face shape analyzer</strong> and uncover your facial symmetry in seconds.
-    </p>
-    <button class="cta-btn" onclick="window.open('https://www.perfectcorp.com/business/showcase/face-analyzer?type=facial-ratio', '_blank')">
-      🔍 Try AI Face Shape Detector
-    </button>
+    <p class="sub">Upload a photo or turn on your camera to instantly detect your face shape — Oval, Round, Square, Heart, Diamond, or Oblong. Try the live preview, then explore the full demo experience.</p>
   </header>
 
-  <section class="features">
-    <h2>Why Use Our AI Face Shape Detector?</h2>
+  <section class="camera-preview" style="text-align:center;">
+    <video id="camera" autoplay playsinline></video>
+    <div class="privacy">📸 This camera preview runs locally and never stores your image.</div>
+    <button class="cta-btn" onclick="window.open('https://www.perfectcorp.com/business/showcase/face-analyzer', '_blank')">
+      Start Full AI Face Shape Analysis →
+    </button>
+  </section>
+
+  <section id="face-types">
+    <h2>Common Face Shapes</h2>
     <div class="feature-grid">
-      <div class="feature">
-        <h3>Instant Detection</h3>
-        <p>Upload or scan your face and get real-time results powered by our AI face shape analysis engine.</p>
-      </div>
-      <div class="feature">
-        <h3>Identify Your Shape</h3>
-        <p>Detect whether your face is oval, square, heart, or round — with smart landmark detection trained on thousands of images.</p>
-      </div>
-      <div class="feature">
-        <h3>Perfect for Beauty & Fashion</h3>
-        <p>Use insights to personalize hairstyles, makeup, eyewear, or jewelry recommendations for your customers.</p>
-      </div>
+      <div class="feature"><h3>Oval</h3><p>Face length slightly longer than width, with balanced proportions and soft jawline.</p></div>
+      <div class="feature"><h3>Round</h3><p>Width and length are similar, with a gentle curve along cheeks and jawline.</p></div>
+      <div class="feature"><h3>Square</h3><p>Forehead, cheekbones, and jawline have similar width, creating a strong angular look.</p></div>
+      <div class="feature"><h3>Heart</h3><p>Wider forehead tapering down to a narrow chin; cheekbones are prominent.</p></div>
+      <div class="feature"><h3>Diamond</h3><p>Cheekbones are the widest part of the face; forehead and chin are narrower.</p></div>
+      <div class="feature"><h3>Oblong</h3><p>Face length noticeably exceeds width, with straighter sides and longer proportions.</p></div>
     </div>
   </section>
 
+  <section id="how-it-works">
+    <h2>How It Works</h2>
+    <div class="feature-grid">
+      <div class="feature"><h3>1. Turn On Camera / Upload Photo</h3><p>Make sure your face is well lit and facing forward for the best detection accuracy.</p></div>
+      <div class="feature"><h3>2. AI Face Analysis</h3><p>Our model detects facial landmarks such as forehead, cheekbones, and jawline to determine facial ratios.</p></div>
+      <div class="feature"><h3>3. Get Results</h3><p>Instantly see your detected face shape with confidence level and recommendations for hairstyles or accessories.</p></div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>Frequently Asked Questions</h2>
+    <div class="feature-grid">
+      <div class="feature"><h3>What is a face shape?</h3><p>Face shape refers to the structural outline defined by the proportions of your forehead, cheekbones, jawline, and overall length.</p></div>
+      <div class="feature"><h3>Is this AI detector accurate?</h3><p>Our AI engine achieves high accuracy when used under proper lighting with a clear, frontal face image.</p></div>
+      <div class="feature"><h3>Are my photos stored?</h3><p>No. The camera preview runs locally and no images are uploaded or saved.</p></div>
+      <div class="feature"><h3>Why should I know my face shape?</h3><p>Understanding your face shape helps you choose the most flattering hairstyles, eyewear, and makeup styles.</p></div>
+      <div class="feature"><h3>Can I use side-view photos?</h3><p>This tool works best with a frontal image; side views may reduce accuracy.</p></div>
+    </div>
+  </section>
+
+  <section id="why-choose">
+    <h2>Why Choose Our Face Shape Detector</h2>
+    <p style="text-align:center;max-width:700px;margin:auto;line-height:1.7;">
+      The Perfect Test AI Face Shape Detector uses advanced facial landmark detection algorithms to analyze forehead width, cheekbone height, jawline angles, and overall facial ratios. 
+      It delivers results instantly without storing any personal data. Whether you're in beauty, fashion, or eyewear, our tool offers fast, privacy-safe AI face shape recognition to enhance personalization and user engagement.
+    </p>
+  </section>
+
   <footer>
-    © 2025 Perfect Test. All rights reserved.  
-    | <a href="https://www.perfectcorp.com/business/showcase/face-analyzer" target="_blank">Learn More</a>
+    © 2025 Perfect Test. All rights reserved. | <a href="https://www.perfectcorp.com/business/showcase/face-analyzer" target="_blank">Try the Official Demo</a>
   </footer>
+
+  <script>
+    // Camera preview activation
+    async function startCamera(){
+      const video=document.getElementById("camera");
+      try{
+        const stream=await navigator.mediaDevices.getUserMedia({video:true});
+        video.srcObject=stream;
+      }catch(err){
+        document.querySelector(".camera-preview").innerHTML="<p>⚠️ Please allow camera permission to start preview.</p>";
+      }
+    }
+    startCamera();
+  </script>
 
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": "AI Face Shape Detector",
+    "@type": "WebApplication",
+    "name": "AI Face Shape Detector - Camera Preview Demo",
     "operatingSystem": "Web Browser",
     "applicationCategory": "AI Beauty Tool",
-    "publisher": {
-      "@type": "Organization",
-      "name": "Perfect Test"
-    },
-    "description": "AI-powered tool that detects your face shape instantly — oval, round, square, or heart — using advanced facial analysis technology.",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    },
+    "publisher": {"@type": "Organization","name": "Perfect Test"},
+    "description": "AI-powered face shape detection preview demo. Turn on camera and see live face tracking before trying the full AI face analyzer.",
     "url": "https://www.perfectcorp.com/business/showcase/face-analyzer"
   }
   </script>
